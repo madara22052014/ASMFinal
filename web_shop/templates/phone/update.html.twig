@@ -1,0 +1,46 @@
+{% extends "base.html.twig" %}
+{% block title %} Update a Phone {% endblock %}
+
+{% block body %}
+    <div class="container-fluid mt-3"> 
+        <h2 class="text-center mt-3"> Update Phone </h2>
+        <div class="col-md-5">         </div>
+            {{ form_start (form) }}
+                <div class="form-group">
+                    {{ form_label (form.PhoneName) }}
+                    {{ form_widget (form.PhoneName, {'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label (form.Publisher) }}
+                    {{ form_widget (form.Publisher, {'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label (form.OperatingSystem) }}
+                    {{ form_widget (form.OperatingSystem, {'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label (form.Memory) }}
+                    {{ form_widget (form.Memory, {'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label (form.RAM) }}
+                    {{ form_widget (form.RAM, {'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label (form.Dimension) }}
+                    {{ form_widget (form.Dimension, {'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label (form.Price) }}
+                    {{ form_widget (form.Price, {'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group">
+                  {{ form_label (form.Image) }}
+                  {{ form_widget (form.Image, {'attr': {'class' : 'form-control'}}) }}
+                </div>
+                <div class="form-group text-center mt-3">
+                    <button class="btn btn-danger">Update</button>
+                </div>
+            {{ form_end (form) }}
+    </div>
+{% endblock %}

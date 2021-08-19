@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Publisher Information{% endblock %}
+
+{% block body %}
+
+<div class="container mt-3">
+    {% for flash in app.flashes("Info") %}
+        <p class="alert alert-primary"> {{ flash }} </p>
+    {% endfor %}
+    {% for flash in app.flashes("Error") %}
+        <p class="alert alert-danger"> {{ flash }} </p>
+    {% endfor %}
+</div>
+<div class="container-fluid">
+<a class="btn btn-dark" href="{{ path ( 'publisher_create' ) }}">Create New Publisher</a>
+<table class = "table table-secondary">
+    <thead>
+        <tr>
+            <th scope="col">Publisher ID</th>
+            <th scope="col">Company Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for publisher in publishers %}
+        <tr>
+            <td scope="row">{{ publisher.id}}</td>
+            <td scope="row">{{ publisher.companyname}}</td>
+            <td scope="row">{{ publisher.phones|length }}</td>
+            <td scope="row">
+                <a class="btn btn-primary" href="{{ path('publisher_detail', {'id': publisher.id} )}}">Detail</a>
+                <a class="btn btn-primary" href="{{ path('publisher_update', {'id': publisher.id} )}}">Update</a>
+                <a class="btn btn-danger" href="{{ path('publisher_delete', {'id': publisher.id} )}}"
+                onclick="return confirm('This publisher will be deleted!')"
+                >Delete</a>
+        </tr>
+    {% endfor %}
+
+    
+    </tbody>
+</div>
+{% endblock %}

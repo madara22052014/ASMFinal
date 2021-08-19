@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Phone Detail{% endblock %}
+
+{% block body %}
+
+<div class="container mt-3">
+    <table class = "table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Phone ID</th>
+                <th scope="col">Phone Name</th>
+                <th scope="col">Publisher</th>
+                <th scope="col">Operating System</th>
+                <th scope="col">Memory</th>
+                <th scope="col">RAM</th>
+                <th scope="col">Dimension</th>
+                <th scope="col">Phone Image</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row">{{ phone.id}}</td>
+                <td scope="row">{{ phone.phonename}}</td>
+                <td scope="row">{{ phone.publisher}}</td>
+                <td scope="row">{{ phone.operatingsystem}}</td>
+                <td scope="row">{{ phone.memory}}</td>
+                <td scope="row">{{ phone.ram}}</td>
+                <td scope="row">{{ phone.dimension}}</td>   
+                <td scope="row">
+                    {% if phone.image != null %}
+                        <img src="{{ asset ('images/products/' ~ phone.image) }}" width="100px" height="120px">
+                    {% else %}
+                        <img src="{{ asset ('images/products/mobile.png') }}" width="100px" height="120px">
+                    {% endif %}  </td>            
+                <td scope="row">
+                    <a class="btn btn-primary" href="{{ path('phone_update', {'id': phone.id} )}}">Update</a>
+                    <a class="btn btn-danger" href="{{ path ('phone_delete', {'id': phone.id}) }}"onclick="return confirm('This publisher will be deleted!')">Delete</a>
+            </tr>
+        </tbody>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+{% block title %} Create a new Publisher {% endblock %}
+
+{% block body %}
+    <div class="container-fluid mt-3"> 
+        <h2 class="text-center mt-3"> Create Publisher </h2>
+        <div class="col-md-5">         </div>
+            {{ form_start (form) }}
+                <div class="form-group">
+                    {{ form_label (form.CompanyName) }}
+                    {{ form_widget (form.CompanyName, {'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label (form.Country) }}
+                    {{ form_widget (form.Country, {'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label (form.Founded) }}
+                    {{ form_widget (form.Founded, {'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group text-center mt-3">
+                    <button class="btn btn-danger">Create</button>
+                </div>
+            {{ form_end (form) }}
+    </div>
+{% endblock %}
